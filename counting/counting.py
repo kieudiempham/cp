@@ -1,6 +1,10 @@
 import logging 
+import time
+
 logging.basicConfig(level=logging.INFO)
-def max_freq(nums):
+start_time = time.time()
+nums = [1,1,1,2,3]
+def max_freq(nums): 
     count = {}
     max_freq = 0
     a = 0
@@ -17,7 +21,5 @@ def max_freq(nums):
             max_freq = count[num]
             a = num
     return a
-
-nums = [1,1,1,2,3]
-result = max_freq(nums)
-print(f"Result: {result}")
+end_time = time.time()
+print(f"Execution time: {end_time - start_time} seconds")
