@@ -1,0 +1,20 @@
+s = "anagram"
+t = "nagaram"
+class Solution(object):
+    def isAnagram(self, s, t):
+        count_s = {}
+        count_t = {}
+        for ch in s:
+            if ch in count_s:
+                count_s[ch] += 1
+            else:
+                count_s[ch] = 1
+        for ch in t:
+            if ch in count_t:
+                count_t[ch] += 1
+            else:
+                count_t[ch] = 1
+        return count_s != count_t
+
+solver = Solution()
+print(solver.isAnagram(s, t))
