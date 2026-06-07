@@ -1,21 +1,24 @@
-class example:
-    def merge(self, a, b):
-        i = 0
-        j = 0
-        result = []
-        while i < len(a) and j < len(b):
-            if a[i] < b[j]:
-                result.append(a[i])
-                i += 1
+class Solution(object):
+    def merge(self, nums1, m, nums2, n):
+        i = m - 1
+        j = n - 1
+        k = m + n - 1
+        while i >= 0 and j >= 0:
+            if nums1[i] > nums2[j]:
+                nums1[k] = nums1[i]
+                i -= 1
             else:
-                result.append(b[j])
-                j += 1
-        while i < len(a):
-            result.append(a[i])
-            i += 1
-        while j < len(b):
-            result.append(b[j])
-            j += 1
-        return result
-solver = example()
-print(solver.merge([1, 3, 99], [2, 4, 6]))
+                nums1[k] = nums2[j]
+                j -= 1
+            k -= 1
+        while j >= 0:
+            nums1[k] = nums2[j]
+            j -= 1
+            k -= 1
+        while i >= 0:
+            nums1[k] = nums1[i]
+            i -= 1
+            k -= 1
+        return nums1    
+solver = Solution()
+print(solver.merge([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3))
