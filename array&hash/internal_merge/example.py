@@ -15,10 +15,6 @@ class Solution(object):
             nums1[k] = nums2[j]
             j -= 1
             k -= 1
-        while i >= 0:
-            nums1[k] = nums1[i]
-            i -= 1
-            k -= 1
         return nums1    
 solver = Solution()
 print(solver.merge([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3))

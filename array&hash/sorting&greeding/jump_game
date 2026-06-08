@@ -1,0 +1,14 @@
+class Solution(object):
+    def canJump(self, nums):
+        j = 0
+        for i in range(0,len(nums)):
+            if i > j:
+                return False
+            j = max(j, i + nums[i])
+        return True
+
+
+solver = Solution()
+print(solver.canJump([2, 0, 4, 0, 4]))
+
+        
